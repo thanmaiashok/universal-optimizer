@@ -1,4 +1,4 @@
-"""PredycatAI Core Modules"""
+"""OptiLLM Core Modules"""
 
 from .loader import UniversalLoader, ModelInfo, ModelSource, ModelArchitecture
 from .profiler import MultiProfiler, ProfileResult, Platform
@@ -8,7 +8,7 @@ from .distiller import DistillationEngine, DistillationResult
 from .evaluator import ReasoningEvaluator, ReasoningScore, EvaluationResult, AccuracyMonitor
 from .strategy import StrategySelector, PipelineConfig, TargetPlatform, OptimizationPreset
 from .exporter import ExportEngine, ExportFormat, ExportResult
-from .optimizer import PredycatOptimizer, OptimizationConfig, OptimizationResult
+from .optimizer import OptiLLMOptimizer, OptimizationConfig, OptimizationResult
 from .finetuner import LoRAFinetuner, LoRAConfig
 
 __all__ = [
@@ -38,7 +38,7 @@ __all__ = [
     "ExportEngine",
     "ExportFormat",
     "ExportResult",
-    "PredycatOptimizer",
+    "OptiLLMOptimizer",
     "OptimizationConfig",
     "OptimizationResult",
     "LoRAFinetuner",

@@ -54,7 +54,7 @@ class AndroidExporter:
         output_path: str = "model_mobilenet.onnx"
     ) -> str:
         """Export with mobile optimizations"""
-        from predycat_ai.core.exporter import ExportEngine, ExportFormat
+        from opti_llm.core.exporter import ExportEngine, ExportFormat
 
         engine = ExportEngine()
         result = engine.export(
@@ -86,7 +86,7 @@ class iOSExporter:
         self,
         model,
         output_path: str = "model.mlmodel",
-        description: str = "PredycatAI Optimized Model"
+        description: str = "OptiLLM Optimized Model"
     ) -> str:
         if not self.coreml_available:
             logger.warning("coremltools not installed, using fallback")
@@ -102,7 +102,7 @@ class iOSExporter:
     
     def _export_fallback(self, model, output_path: str) -> str:
         """Fallback to ONNX"""
-        from predycat_ai.core.exporter import ExportEngine, ExportFormat
+        from opti_llm.core.exporter import ExportEngine, ExportFormat
 
         engine = ExportEngine()
         result = engine.export(model, ExportFormat.ONNX, model_name="model_ios")

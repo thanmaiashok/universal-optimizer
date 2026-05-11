@@ -1,5 +1,5 @@
 """
-PredycatAI Universal Optimizer
+OptiLLM Universal Optimizer
 =========================
 A production-grade AI optimization system for any neural network.
 """

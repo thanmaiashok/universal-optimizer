@@ -2,7 +2,7 @@
 cd /d "%~dp0"
 
 echo ========================================
-echo   PredycatAI Universal Optimizer
+echo   OptiLLM Universal Optimizer
 echo ========================================
 echo.
 
@@ -24,6 +24,6 @@ echo.
 echo Press Ctrl+C to stop
 echo.
 
-python -m predycat_ai.api.main
+python -m opti_llm.api.main
 
 pause

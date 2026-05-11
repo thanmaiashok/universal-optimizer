@@ -1,4 +1,4 @@
-"""Utility functions for PredycatAI"""
+"""Utility functions for OptiLLM"""
 
 import logging
 import os

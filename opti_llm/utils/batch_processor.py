@@ -75,14 +75,14 @@ class BatchProcessor:
         try:
             job.status = "running"
             
-            from predycat_ai.core.optimizer import PredycatOptimizer, OptimizationConfig
+            from opti_llm.core.optimizer import OptiLLMOptimizer, OptimizationConfig
             
             config = OptimizationConfig(
                 target_platform=job.target,
                 preset=preset
             )
             
-            optimizer = PredycatOptimizer(config=config)
+            optimizer = OptiLLMOptimizer(config=config)
             result = optimizer.optimize(job.model_path)
             
             job.result = {

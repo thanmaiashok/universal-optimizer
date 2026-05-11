@@ -1,4 +1,4 @@
-"""PredycatAI Configuration System"""
+"""OptiLLM Configuration System"""
 
 import os
 import json
@@ -9,7 +9,7 @@ from datetime import datetime
 
 
 @dataclass
-class PredycatConfig:
+class OptiLLMConfig:
     version: str = "1.0.0"
     target_platform: str = "laptop"
     preset: str = "balanced"
@@ -29,7 +29,7 @@ class PredycatConfig:
         return asdict(self)
     
     @classmethod
-    def from_dict(cls, data: Dict[str, Any]) -> "PredycatConfig":
+    def from_dict(cls, data: Dict[str, Any]) -> "OptiLLMConfig":
         return cls(**data)
     
     def save(self, path: str):
@@ -37,7 +37,7 @@ class PredycatConfig:
             json.dump(self.to_dict(), f, indent=2)
     
     @classmethod
-    def load(cls, path: str) -> "PredycatConfig":
+    def load(cls, path: str) -> "OptiLLMConfig":
         with open(path, "r") as f:
             data = json.load(f)
         return cls.from_dict(data)
@@ -57,25 +57,25 @@ class PredycatConfig:
         return errors
 
 
-def get_default_config() -> PredycatConfig:
-    return PredycatConfig()
+def get_default_config() -> OptiLLMConfig:
+    return OptiLLMConfig()
 
 
-def get_config_for_platform(platform: str) -> PredycatConfig:
+def get_config_for_platform(platform: str) -> OptiLLMConfig:
     configs = {
-        "laptop": PredycatConfig(
+        "laptop": OptiLLMConfig(
             target_platform="laptop",
             preset="balanced",
             max_accuracy_drop=2.0,
             export_formats=["pt", "onnx"]
         ),
-        "cloud": PredycatConfig(
+        "cloud": OptiLLMConfig(
             target_platform="cloud",
             preset="max_accuracy",
             max_accuracy_drop=1.0,
             export_formats=["pt", "onnx"]
         ),
-        "mobile": PredycatConfig(
+        "mobile": OptiLLMConfig(
             target_platform="mobile",
             preset="balanced",
             max_accuracy_drop=2.0,
@@ -83,7 +83,7 @@ def get_config_for_platform(platform: str) -> PredycatConfig:
             max_ram_mb=2048,
             export_formats=["pt", "onnx"]
         ),
-        "edge": PredycatConfig(
+        "edge": OptiLLMConfig(
             target_platform="edge",
             preset="ultra_compression",
             max_accuracy_drop=3.0,
@@ -93,7 +93,7 @@ def get_config_for_platform(platform: str) -> PredycatConfig:
         ),
     }
     
-    return configs.get(platform.lower(), PredycatConfig())
+    return configs.get(platform.lower(), OptiLLMConfig())
 
 
 def create_default_dirs(base_dir: str = "."):
@@ -110,16 +110,16 @@ def create_default_dirs(base_dir: str = "."):
         Path(d).mkdir(parents=True, exist_ok=True)
 
 
-_global_config: Optional[PredycatConfig] = None
+_global_config: Optional[OptiLLMConfig] = None
 
 
-def get_global_config() -> PredycatConfig:
+def get_global_config() -> OptiLLMConfig:
     global _global_config
     if _global_config is None:
         _global_config = get_default_config()
     return _global_config
 
 
-def set_global_config(config: PredycatConfig):
+def set_global_config(config: OptiLLMConfig):
     global _global_config
     _global_config = config

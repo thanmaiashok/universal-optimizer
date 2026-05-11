@@ -1,4 +1,4 @@
-"""PredycatAI CLI Tool"""
+"""OptiLLM CLI Tool"""
 
 import os
 import sys
@@ -20,7 +20,7 @@ def setup_logging(verbose: bool = False):
 
 
 def optimize_command(args):
-    from predycat_ai.core.optimizer import PredycatOptimizer, OptimizationConfig
+    from opti_llm.core.optimizer import OptiLLMOptimizer, OptimizationConfig
     
     config = OptimizationConfig(
         target_platform=args.target,
@@ -35,7 +35,7 @@ def optimize_command(args):
         enable_reasoning_check=not args.no_reasoning
     )
     
-    optimizer = PredycatOptimizer(config=config, output_dir=args.output)
+    optimizer = OptiLLMOptimizer(config=config, output_dir=args.output)
     
     print(f"Optimizing model: {args.model}")
     print(f"Target: {args.target}, Preset: {args.preset}")
@@ -74,7 +74,7 @@ def optimize_command(args):
 
 
 def profile_command(args):
-    from predycat_ai.core.profiler import MultiProfiler, Platform
+    from opti_llm.core.profiler import MultiProfiler, Platform
     
     profiler = MultiProfiler()
     
@@ -96,7 +96,7 @@ def profile_command(args):
 
 
 def evaluate_command(args):
-    from predycat_ai.core.evaluator import ReasoningEvaluator, ReasoningTaskType
+    from opti_llm.core.evaluator import ReasoningEvaluator, ReasoningTaskType
     
     print(f"Evaluating: {args.model}")
     
@@ -131,7 +131,7 @@ def batch_command(args):
 
 def main():
     parser = argparse.ArgumentParser(
-        description="PredycatAI Universal Optimizer - Production-grade AI optimization"
+        description="OptiLLM Universal Optimizer - Production-grade AI optimization"
     )
     subparsers = parser.add_subparsers(dest="command", help="Available commands")
     

@@ -1,4 +1,4 @@
-"""FastAPI Backend for PredycatAI Universal Optimizer"""
+"""FastAPI Backend for OptiLLM Universal Optimizer"""
 
 import os
 import io
@@ -18,7 +18,7 @@ logger = logging.getLogger(__name__)
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    logger.info("PredycatAI API starting up...")
+    logger.info("OptiLLM API starting up...")
     yield
 
 DASHBOARD_HTML = """<!DOCTYPE html>
@@ -26,7 +26,7 @@ DASHBOARD_HTML = """<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PredycatAI Universal Optimizer</title>
+<title>OptiLLM Universal Optimizer</title>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
@@ -240,7 +240,7 @@ DASHBOARD_HTML = """<!DOCTYPE html>
 <header class="topbar">
   <div class="logo">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-    PredycatAI
+    OptiLLM
   </div>
   <div class="topbar-right">
     <div class="status-pill"><div class="dot"></div><span id="api-status">Connected</span></div>
@@ -1795,7 +1795,7 @@ function pgAudioSelected(inp) {
 </html>"""
 
 app = FastAPI(
-    title="PredycatAI Universal Optimizer API",
+    title="OptiLLM Universal Optimizer API",
     description="Production-grade AI optimization system for any neural network",
     version="1.0.0",
     lifespan=lifespan,
@@ -1856,7 +1856,7 @@ async def favicon():
 @app.get("/")
 async def root():
     return {
-        "name": "PredycatAI Universal Optimizer",
+        "name": "OptiLLM Universal Optimizer",
         "version": "1.0.0",
         "status": "running"
     }
@@ -1899,7 +1899,7 @@ async def optimize_model(
     export_formats = ["pt"]
     
     try:
-        from predycat_ai.core.optimizer import PredycatOptimizer, OptimizationConfig
+        from opti_llm.core.optimizer import OptiLLMOptimizer, OptimizationConfig
         
         config = OptimizationConfig(
             target_platform=target_platform,
@@ -1914,7 +1914,7 @@ async def optimize_model(
             enable_reasoning_check=enable_reasoning_check
         )
         
-        optimizer = PredycatOptimizer(config=config)
+        optimizer = OptiLLMOptimizer(config=config)
         
         background_tasks.add_task(run_optimization, job_id, optimizer, str(model_path))
         
@@ -1944,7 +1944,7 @@ async def optimize_by_id(request: OptimizeByIdRequest, background_tasks: Backgro
     job_id = f"job_{int(time.time())}"
 
     try:
-        from predycat_ai.core.optimizer import PredycatOptimizer, OptimizationConfig
+        from opti_llm.core.optimizer import OptiLLMOptimizer, OptimizationConfig
 
         config = OptimizationConfig(
             target_platform=request.target_platform,
@@ -1956,7 +1956,7 @@ async def optimize_by_id(request: OptimizeByIdRequest, background_tasks: Backgro
             enable_reasoning_check=request.enable_reasoning_check,
         )
 
-        optimizer = PredycatOptimizer(config=config)
+        optimizer = OptiLLMOptimizer(config=config)
 
         background_tasks.add_task(run_optimization, job_id, optimizer, request.model_id)
 
@@ -1977,7 +1977,7 @@ async def optimize_by_id(request: OptimizeByIdRequest, background_tasks: Backgro
 async def run_optimization(job_id: str, optimizer, model_path: str):
     try:
         # If model_path is a HuggingFace model id or local path, load it first
-        from predycat_ai.core.loader import UniversalLoader
+        from opti_llm.core.loader import UniversalLoader
         loader = UniversalLoader()
         model, model_info = loader.load_model(model_path)
         result = optimizer.optimize(model, model_path=model_path)
@@ -2017,7 +2017,7 @@ async def get_strategy(
     model_type: str = "llm",
     preset: str = "balanced"
 ):
-    from predycat_ai.core.strategy import StrategySelector, TargetPlatform, ModelType, OptimizationPreset
+    from opti_llm.core.strategy import StrategySelector, TargetPlatform, ModelType, OptimizationPreset
 
     selector = StrategySelector()
     strategy = selector.select_strategy(

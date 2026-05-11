@@ -1,8 +1,8 @@
 @echo off
-REM PredycatAI Universal Optimizer - Kill Script
+REM OptiLLM Universal Optimizer - Kill Script
 
 echo.
-echo [INFO] Stopping PredycatAI...
+echo [INFO] Stopping OptiLLM...
 
 REM Use venv Python if exists
 if exist venv\Scripts\activate.bat (
@@ -10,11 +10,11 @@ if exist venv\Scripts\activate.bat (
 )
 
 REM Kill by PID
-if exist .predycat_pid (
-    for /f "delims=" %%i in (.predycat_pid) do (
+if exist .optillm_pid (
+    for /f "delims=" %%i in (.optillm_pid) do (
         taskkill /pid %%i /f 2>nul
     )
-    del .predycat_pid
+    del .optillm_pid
 )
 
-echo [OK] PredycatAI stopped
+echo [OK] OptiLLM stopped

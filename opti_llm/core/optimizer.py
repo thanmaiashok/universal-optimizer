@@ -1,4 +1,4 @@
-"""PredycatAI Main Orchestrator - Universal Optimizer Engine"""
+"""OptiLLM Main Orchestrator - Universal Optimizer Engine"""
 
 import os
 import json
@@ -60,7 +60,7 @@ class OptimizationConfig:
     enable_reasoning_check: bool = True
 
 
-class PredycatOptimizer:
+class OptiLLMOptimizer:
     def __init__(
         self,
         model: Any = None,
@@ -89,7 +89,7 @@ class PredycatOptimizer:
         self.model_info = None
         self.results = []
         
-        logger.info("PredycatAI Optimizer initialized")
+        logger.info("OptiLLM Optimizer initialized")
         
     def optimize(
         self,
@@ -403,7 +403,7 @@ class PredycatOptimizer:
                 result = self.exporter.export(
                     self.optimized_model,
                     format=fmt_enum,
-                    model_name=f"predycat_optimized"
+                    model_name=f"optillm_optimized"
                 )
                 if result.success:
                     paths.append(result.output_path)
@@ -447,7 +447,7 @@ def optimize_model(
         max_accuracy_drop=max_drop
     )
     
-    optimizer = PredycatOptimizer(config=config, output_dir=output_dir)
+    optimizer = OptiLLMOptimizer(config=config, output_dir=output_dir)
     
     result = optimizer.optimize(model_path)
     
@@ -460,7 +460,7 @@ def quick_optimize(
 ) -> OptimizationResult:
     config = OptimizationConfig(target_platform=target)
     
-    optimizer = PredycatOptimizer(config=config)
+    optimizer = OptiLLMOptimizer(config=config)
     
     return optimizer.optimize(model)
 

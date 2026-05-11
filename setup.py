@@ -1,9 +1,9 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="predycat-ai",
+    name="opti-llm",
     version="1.0.0",
-    description="PredycatAI Universal Optimizer - Production-grade AI optimization system",
+    description="OptiLLM Universal Optimizer - Production-grade AI optimization system",
     author="Thanmai",
     author_email="thanmai5ashok@gmail.com",
     url="https://github.com/thanmai29/universal-optimizer",
@@ -46,7 +46,7 @@ setup(
     python_requires=">=3.9",
     entry_points={
         "console_scripts": [
-            "predycat=predycat_ai.cli.main:main",
+            "optillm=opti_llm.cli.main:main",
         ],
     },
     classifiers=[

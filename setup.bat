@@ -1,10 +1,10 @@
 @echo off
-REM PredycatAI Universal Optimizer - Setup Script
+REM OptiLLM Universal Optimizer - Setup Script
 REM Run this once to install everything
 
 echo.
 echo ========================================
-echo   PredycatAI Setup
+echo   OptiLLM Setup
 echo ========================================
 echo.
 
@@ -39,7 +39,7 @@ if errorlevel 1 (
 echo [OK] torch, numpy
 
 echo.
-echo [4/4] Installing PredycatAI dependencies...
+echo [4/4] Installing OptiLLM dependencies...
 pip install --quiet transformers fastapi uvicorn pydantic psutil
 if errorlevel 1 (
     echo [WARNING] Some optional deps failed

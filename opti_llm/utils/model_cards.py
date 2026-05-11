@@ -85,7 +85,7 @@ def create_model_card(
 ) -> ModelCard:
     """Create model card from optimization result"""
     return ModelCard(
-        model_id=f"predycat_{datetime.now().strftime('%Y%m%d_%H%M%S')}",
+        model_id=f"optillm_{datetime.now().strftime('%Y%m%d_%H%M%S')}",
         name=getattr(model, 'name', 'unknown'),
         base_model=getattr(model, 'base_model', 'unknown'),
         optimization_target=config.target_platform,

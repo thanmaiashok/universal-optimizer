@@ -1,8 +1,8 @@
 #!/bin/bash
-# PredycatAI Universal Optimizer - Start Script
+# OptiLLM Universal Optimizer - Start Script
 # Starts the API server and CLI tools
 
-echo "🚀 Starting PredycatAI Universal Optimizer..."
+echo "🚀 Starting OptiLLM Universal Optimizer..."
 
 # Check Python
 if ! command -v python3 &> /dev/null; then
@@ -31,18 +31,18 @@ fi
 # Create directories
 mkdir -p outputs/models outputs/reports outputs/logs models cache
 
-# Kill all old predycat processes and anything on port 8080
-pkill -f "predycat_ai" 2>/dev/null || true
-pkill -f "uvicorn predycat" 2>/dev/null || true
+# Kill all old optillm processes and anything on port 8080
+pkill -f "opti_llm" 2>/dev/null || true
+pkill -f "uvicorn optillm" 2>/dev/null || true
 lsof -ti :8080 | xargs kill -9 2>/dev/null || true
 sleep 1
 
 # Start API server in background
 echo "🌐 Starting API server on port 8080..."
-uvicorn predycat_ai.api.main:app --host 0.0.0.0 --port 8080 &
+uvicorn opti_llm.api.main:app --host 0.0.0.0 --port 8080 &
 API_PID=$!
 
-echo "✅ PredycatAI running!"
+echo "✅ OptiLLM running!"
 echo "   API:       http://localhost:8080"
 echo "   Docs:      http://localhost:8080/docs"
 echo "   Dashboard: http://localhost:8080/dashboard"
@@ -51,6 +51,6 @@ echo "Press Ctrl+C to stop"
 echo "API PID: $API_PID"
 
 # Save PID for kill script
-echo $API_PID > .predycat_pid
+echo $API_PID > .optillm_pid
 
 wait

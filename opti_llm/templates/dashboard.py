@@ -8,7 +8,7 @@ html_content = '''<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PredycatAI Universal Optimizer</title>
+    <title>OptiLLM Universal Optimizer</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, sans-serif; }
         body { background: #0a0a0f; color: #e0e0e0; min-height: 100vh; }
@@ -155,7 +155,7 @@ html_content = '''<!DOCTYPE html>
 </head>
 <body>
     <header class="header">
-        <div class="logo">🦊 <span>PredycatAI</span> Universal Optimizer</div>
+        <div class="logo">🦊 <span>OptiLLM</span> Universal Optimizer</div>
         <div>
             <span id="serverStatus" class="status-badge status-idle">IDLE</span>
         </div>
@@ -381,7 +381,7 @@ html_content = '''<!DOCTYPE html>
 </html>
 '''
 
-with open('predycat_ai/templates/dashboard.html', 'w') as f:
+with open('opti_llm/templates/dashboard.html', 'w') as f:
     f.write(html_content)
 
 print("Dashboard created!")

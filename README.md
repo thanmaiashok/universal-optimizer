@@ -1,4 +1,4 @@
-# PredycatAI — Universal Optimizer
+# OptiLLM — Universal Optimizer
 
 > Production-grade AI model optimization for any neural network. Compress, quantize, prune, and deploy LLMs, Transformers, and CNNs to laptop, cloud, mobile, or edge — in one command.
 
@@ -9,7 +9,7 @@
 
 ## What it does
 
-PredycatAI takes any neural network and automatically selects the best optimization pipeline for your target hardware — no manual tuning required.
+OptiLLM takes any neural network and automatically selects the best optimization pipeline for your target hardware — no manual tuning required.
 
 | Optimization | What it does |
 |---|---|
@@ -36,13 +36,13 @@ pip install -e .
 pip install -e ".[full]"
 
 # Optimize a model
-predycat optimize gpt2 --target mobile --preset balanced
+optillm optimize gpt2 --target mobile --preset balanced
 
 # Profile hardware constraints
-predycat profile ./model.pt
+optillm profile ./model.pt
 
 # Evaluate reasoning accuracy
-predycat evaluate gpt2
+optillm evaluate gpt2
 ```
 
 ---
@@ -50,7 +50,7 @@ predycat evaluate gpt2
 ## Python API
 
 ```python
-from predycat_ai.core.optimizer import PredycatOptimizer, OptimizationConfig
+from opti_llm.core.optimizer import OptiLLMOptimizer, OptimizationConfig
 
 config = OptimizationConfig(
     target_platform="mobile",   # laptop | cloud | mobile | edge
@@ -58,7 +58,7 @@ config = OptimizationConfig(
     max_accuracy_drop=2.0       # % accuracy loss allowed
 )
 
-optimizer = PredycatOptimizer(config=config)
+optimizer = OptiLLMOptimizer(config=config)
 result = optimizer.optimize(model)
 
 print(f"Compression:   {result.compression_ratio:.1f}x")
@@ -93,7 +93,7 @@ print(f"Accuracy drop: {result.accuracy_drop:.2f}%")
 ## REST API server
 
 ```bash
-cd predycat_ai/api
+cd opti_llm/api
 python main.py
 # → http://localhost:8080
 ```
@@ -103,9 +103,9 @@ python main.py
 ## Project structure
 
 ```
-predycat_ai/
+opti_llm/
 ├── core/
-│   ├── optimizer.py      # Main orchestrator (PredycatOptimizer)
+│   ├── optimizer.py      # Main orchestrator (OptiLLMOptimizer)
 │   ├── loader.py         # Universal model loader (HuggingFace, PyTorch, ONNX)
 │   ├── profiler.py       # Multi-environment hardware profiler
 │   ├── quantizer.py      # FP16/INT8/INT4/INT3 quantization engine
@@ -161,4 +161,4 @@ Pull requests welcome. Open an issue first for large changes.
 
 ## License
 
-MIT © PredycatAI contributors
+MIT © OptiLLM contributors

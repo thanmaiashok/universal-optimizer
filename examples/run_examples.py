@@ -1,4 +1,4 @@
-"""Example runs for PredycatAI Universal Optimizer"""
+"""Example runs for OptiLLM Universal Optimizer"""
 
 import logging
 import sys
@@ -42,7 +42,7 @@ def example_1_simple_model():
     params = sum(p.numel() for p in model.parameters())
     logger.info(f"Original model: {params:,} parameters")
     
-    from predycat_ai.core.optimizer import PredycatOptimizer, OptimizationConfig
+    from opti_llm.core.optimizer import OptiLLMOptimizer, OptimizationConfig
     
     config = OptimizationConfig(
         target_platform="mobile",
@@ -50,7 +50,7 @@ def example_1_simple_model():
         max_accuracy_drop=2.0
     )
     
-    optimizer = PredycatOptimizer(config=config, output_dir="./outputs/example1")
+    optimizer = OptiLLMOptimizer(config=config, output_dir="./outputs/example1")
     result = optimizer.optimize(model)
     
     if result.success:
@@ -78,7 +78,7 @@ def example_2_quantization():
         nn.Linear(4096, 32000)
     )
     
-    from predycat_ai.core.quantizer import QuantizationEngine, QuantType
+    from opti_llm.core.quantizer import QuantizationEngine, QuantType
     
     engine = QuantizationEngine()
     
@@ -107,7 +107,7 @@ def example_3_profiling():
         nn.Linear(512, 10)
     )
     
-    from predycat_ai.core.profiler import MultiProfiler, Platform
+    from opti_llm.core.profiler import MultiProfiler, Platform
     
     profiler = MultiProfiler()
     
@@ -127,7 +127,7 @@ def example_4_strategy():
     logger.info("Example 4: Strategy Selection")
     logger.info("="*50)
     
-    from predycat_ai.core.strategy import StrategySelector, TargetPlatform, OptimizationPreset
+    from opti_llm.core.strategy import StrategySelector, TargetPlatform, OptimizationPreset
     
     selector = StrategySelector()
     
@@ -148,7 +148,7 @@ def example_5_reasoning_evaluation():
     logger.info("Example 5: Reasoning Evaluation")
     logger.info("="*50)
     
-    from predycat_ai.core.evaluator import ReasoningEvaluator, ReasoningTaskType
+    from opti_llm.core.evaluator import ReasoningEvaluator, ReasoningTaskType
     
     evaluator = ReasoningEvaluator()
     
@@ -166,7 +166,7 @@ def example_6_hardware():
     logger.info("Example 6: Hardware Information")
     logger.info("="*50)
     
-    from predycat_ai.utils import get_hardware_info, get_memory_stats
+    from opti_llm.utils import get_hardware_info, get_memory_stats
     
     hw = get_hardware_info()
     logger.info(f"  CPU: {hw.cpu}")
@@ -188,16 +188,16 @@ def example_7_cli():
     
     logger.info("""
 Usage:
-  predycat optimize <model> --target mobile --preset balanced
-  predycat optimize <model> --target mobile --max-drop 2%
-  predycat optimize <model> --target mobile --formats onnx,pt
-  predycat profile <model>
-  predycat evaluate <model>
+  optillm optimize <model> --target mobile --preset balanced
+  optillm optimize <model> --target mobile --max-drop 2%
+  optillm optimize <model> --target mobile --formats onnx,pt
+  optillm profile <model>
+  optillm evaluate <model>
 
 Examples:
-  predycat optimize gpt2 --target mobile
-  predycat optimize ./model.pt --target laptop --preset ultra_compression
-  predycat batch "models/*.pt" --target mobile
+  optillm optimize gpt2 --target mobile
+  optillm optimize ./model.pt --target laptop --preset ultra_compression
+  optillm batch "models/*.pt" --target mobile
 """)
 
 
@@ -221,5 +221,5 @@ def run_all_examples():
 
 
 if __name__ == "__main__":
-    logger.info("Running PredycatAI Examples")
+    logger.info("Running OptiLLM Examples")
     run_all_examples()
