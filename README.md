@@ -1,4 +1,5 @@
 <p align="center"><img src="docs/flow.svg" alt="Animated OptiLLM pipeline: Load → Profile → Strategy → Compress → Evaluate → Export" width="100%"/></p>
+
 <p align="center"><sub>10-second tour: Load → Profile → Strategy → Compress → Evaluate → Export</sub></p>
 
 <p align="center"><img src="docs/mc/intro.svg" width="100%" alt="Production-grade AI model optimization for any neural network. Compress, quantize, prune and deploy LLMs, Transformers and CNNs to laptop, cloud, mobile or edge in one command."/></p>
