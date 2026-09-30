@@ -14,6 +14,11 @@
 <a id="quick-start"></a>
 <h2><img src="docs/mc/h2-quick-start.svg" width="100%" alt="Quick start"/></h2>
 
+<p align="center"><img src="docs/mc/c-01.svg" width="100%" alt="code: # Clone git clone https://github.com/thanmaiashok/universal-optimizer.git cd universal-optimizer # Install (Python 3.9+) pip install -e . # Full install (GPU + "/></p>
+
+<details>
+<summary>Copy as text</summary>
+
 ```bash
 # Clone
 git clone https://github.com/thanmaiashok/universal-optimizer.git
@@ -35,8 +40,15 @@ optillm profile ./model.pt
 optillm evaluate gpt2
 ```
 
+</details>
+
 <a id="python-api"></a>
 <h2><img src="docs/mc/h2-python-api.svg" width="100%" alt="Python API"/></h2>
+
+<p align="center"><img src="docs/mc/c-02.svg" width="100%" alt="code: from opti_llm.core.optimizer import OptiLLMOptimizer, OptimizationConfig config = OptimizationConfig( target_platform=&quot;mobile&quot;, # laptop | cloud | mobile | edge"/></p>
+
+<details>
+<summary>Copy as text</summary>
 
 ```python
 from opti_llm.core.optimizer import OptiLLMOptimizer, OptimizationConfig
@@ -55,6 +67,8 @@ print(f"Latency gain:  {result.latency_improvement:.1f}x")
 print(f"Accuracy drop: {result.accuracy_drop:.2f}%")
 ```
 
+</details>
+
 <a id="presets"></a>
 <h2><img src="docs/mc/h2-presets.svg" width="100%" alt="Presets"/></h2>
 
@@ -68,14 +82,26 @@ print(f"Accuracy drop: {result.accuracy_drop:.2f}%")
 <a id="rest-api-server"></a>
 <h2><img src="docs/mc/h2-rest-api-server.svg" width="100%" alt="REST API server"/></h2>
 
+<p align="center"><img src="docs/mc/c-03.svg" width="100%" alt="code: cd opti_llm/api python main.py # → http://localhost:8080 "/></p>
+
+<details>
+<summary>Copy as text</summary>
+
 ```bash
 cd opti_llm/api
 python main.py
 # → http://localhost:8080
 ```
 
+</details>
+
 <a id="project-structure"></a>
 <h2><img src="docs/mc/h2-project-structure.svg" width="100%" alt="Project structure"/></h2>
+
+<p align="center"><img src="docs/mc/c-04.svg" width="100%" alt="code: opti_llm/ ├── core/ │ ├── optimizer.py # Main orchestrator (OptiLLMOptimizer) │ ├── loader.py # Universal model loader (HuggingFace, PyTorch, ONNX) │ ├── profil"/></p>
+
+<details>
+<summary>Copy as text</summary>
 
 ```
 opti_llm/
@@ -103,6 +129,8 @@ opti_llm/
 examples/
 └── run_examples.py
 ```
+
+</details>
 
 <a id="performance-targets"></a>
 <h2><img src="docs/mc/h2-performance-targets.svg" width="100%" alt="Performance targets"/></h2>
