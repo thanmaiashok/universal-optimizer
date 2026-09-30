@@ -9,16 +9,7 @@
 <a id="what-it-does"></a>
 <h2><img src="docs/mc/h2-what-it-does.svg" width="100%" alt="What it does"/></h2>
 
-OptiLLM takes any neural network and automatically selects the best optimization pipeline for your target hardware — no manual tuning required.
-
-| Optimization | What it does |
-|---|---|
-| **Quantization** | FP16 / INT8 / INT4 / INT3 — shrinks model weight precision |
-| **Pruning** | Sensitivity-based removal of low-impact weights |
-| **Distillation** | Teacher-student compression for edge/mobile |
-| **Strategy Selector** | Auto-picks the right pipeline for your target |
-| **Reasoning Evaluator** | Multi-step logic scoring to guard accuracy |
-| **Hardware Runtime** | TensorRT, ONNX Runtime, GGUF export |
+<p align="center"><img src="docs/mc/t-01.svg" width="100%" alt="OptiLLM takes any neural network and automatically selects the best optimization pipeline for your target hardware - no manual tuning required. Optimization | What it does Quantization | FP16 / INT8 / INT4 / INT3 - shrinks model weight precision Pruning | Sensitivity-based removal of low-impact weights Distillation | Teacher-student compression for edge/mobile Strategy Selector | Auto-picks the right pipeline for your target Reasoning Evaluator | Multi-step logic scoring to guard accuracy Hardware Runtime | TensorRT, ONNX Runtime, GGUF export"/></p>
 
 <a id="quick-start"></a>
 <h2><img src="docs/mc/h2-quick-start.svg" width="100%" alt="Quick start"/></h2>
@@ -67,22 +58,12 @@ print(f"Accuracy drop: {result.accuracy_drop:.2f}%")
 <a id="presets"></a>
 <h2><img src="docs/mc/h2-presets.svg" width="100%" alt="Presets"/></h2>
 
-| Preset | Compression | Accuracy kept | Best for |
-|---|---|---|---|
-| `balanced` | 2–4x | ~98% | General use |
-| `ultra_compression` | 4–10x | ~95% | Mobile / Edge |
-| `max_accuracy` | 1.5–2x | ~99% | Cloud / Production |
-| `mobile_safe` | 2–3x | ~97% | Mobile deployments |
+<p align="center"><img src="docs/mc/t-02.svg" width="100%" alt="Preset | Compression | Accuracy kept | Best for balanced | 2-4x | ~98% | General use ultra_compression | 4-10x | ~95% | Mobile / Edge max_accuracy | 1.5-2x | ~99% | Cloud / Production mobile_safe | 2-3x | ~97% | Mobile deployments"/></p>
 
 <a id="target-platforms"></a>
 <h2><img src="docs/mc/h2-target-platforms.svg" width="100%" alt="Target platforms"/></h2>
 
-| Platform | Batch size | RAM limit | Default preset |
-|---|---|---|---|
-| `laptop` | 8 | 8 GB | balanced |
-| `cloud` | 16 | 16 GB | max_accuracy |
-| `mobile` | 1 | 2 GB | balanced |
-| `edge` | 1 | 1 GB | ultra_compression |
+<p align="center"><img src="docs/mc/t-03.svg" width="100%" alt="Platform | Batch size | RAM limit | Default preset laptop | 8 | 8 GB | balanced cloud | 16 | 16 GB | max_accuracy mobile | 1 | 2 GB | balanced edge | 1 | 1 GB | ultra_compression"/></p>
 
 <a id="rest-api-server"></a>
 <h2><img src="docs/mc/h2-rest-api-server.svg" width="100%" alt="REST API server"/></h2>
@@ -126,31 +107,21 @@ examples/
 <a id="performance-targets"></a>
 <h2><img src="docs/mc/h2-performance-targets.svg" width="100%" alt="Performance targets"/></h2>
 
-- Compression: **3x–10x** size reduction
-- Latency: **2x–5x** faster inference
-- Mobile size: **100–300 MB**
-- RAM: **< 2 GB**
+<p align="center"><img src="docs/mc/t-04.svg" width="100%" alt="Compression: 3x-10x size reduction Latency: 2x-5x faster inference Mobile size: 100-300 MB RAM: &lt; 2 GB"/></p>
 
 <a id="requirements"></a>
 <h2><img src="docs/mc/h2-requirements.svg" width="100%" alt="Requirements"/></h2>
 
-- Python 3.9+
-- PyTorch 2.0+
-- (Optional) CUDA for GPU quantization
+<p align="center"><img src="docs/mc/t-05.svg" width="100%" alt="Python 3.9+ PyTorch 2.0+ (Optional) CUDA for GPU quantization"/></p>
 
 <a id="contributing"></a>
 <h2><img src="docs/mc/h2-contributing.svg" width="100%" alt="Contributing"/></h2>
 
-Pull requests welcome. Open an issue first for large changes.
-
-1. Fork the repo
-2. Create a feature branch: `git checkout -b feat/your-feature`
-3. Commit: `git commit -m "feat: add your feature"`
-4. Push and open a PR
+<p align="center"><img src="docs/mc/t-06.svg" width="100%" alt="Pull requests welcome. Open an issue first for large changes. Fork the repo Create a feature branch: git checkout -b feat/your-feature Commit: git commit -m &quot;feat: add your feature&quot; Push and open a PR"/></p>
 
 <a id="license"></a>
 <h2><img src="docs/mc/h2-license.svg" width="100%" alt="License"/></h2>
 
-MIT © OptiLLM contributors
+<p align="center"><img src="docs/mc/t-07.svg" width="100%" alt="MIT © OptiLLM contributors"/></p>
 
 <p align="center"><a href="https://github.com/thanmaiashok"><img src="docs/mc/footer.svg" width="100%" alt="Built by Thanmai A, founder of FoxynAI"/></a></p>
