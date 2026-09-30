@@ -26,7 +26,7 @@ OptiLLM takes any neural network and automatically selects the best optimization
 
 ```bash
 # Clone
-git clone https://github.com/<your-username>/universal-optimizer.git
+git clone https://github.com/thanmaiashok/universal-optimizer.git
 cd universal-optimizer
 
 # Install (Python 3.9+)
