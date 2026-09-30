@@ -1,5 +1,8 @@
 # OptiLLM — Universal Optimizer
 
+<p align="center"><img src="docs/flow.svg" alt="Animated OptiLLM pipeline: Load → Profile → Strategy → Compress → Evaluate → Export" width="100%"/></p>
+<p align="center"><sub>10-second tour: Load → Profile → Strategy → Compress → Evaluate → Export</sub></p>
+
 > Production-grade AI model optimization for any neural network. Compress, quantize, prune, and deploy LLMs, Transformers, and CNNs to laptop, cloud, mobile, or edge — in one command.
 
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://python.org)
